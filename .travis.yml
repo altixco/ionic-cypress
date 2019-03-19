@@ -25,6 +25,8 @@ deploy:
   secret_access_key:
     secure: h4Es6+wou3fuLevlBEWvdV/5nQhC21tYH/jRQJXZky053gC54kRV+h8/3q5A1fFfm27tVhanHOvdlyBI84IoAz3fohnV9y6MOTqg6dMJvpvZkJSzAiRHJX9KBIPREV0D2eqjsmuiePyMYq/OFK8cRldmI5QWfUYdd8OtuJCTNHHJESN7/+GPultsuf0ZdvARJe3vTGbO6yNlT70dxPBjFolttdrhytPQo97wVwkZX8RFnX2wEAzOJ+YW9fpFuALooyPdEdVPN+vaCPF0akIANwTf6PENYlmpPXHj8nR3sAioL8IZZbl5LTMlPkaQ7b8BTyVN1etcQuzbDg75bNFvnrqbfka1F/fauBA50qiI1hsx6o5yoH9LUK/hlP9VJVm6TLL7LXU4MUiqe3yfI3ariI6L8z+T9D02R36TM1BGpae1ueRMdI7MGJGaN9rpfWsd2FX5CrH4/BIXq0AClW2y06/viyz+cLzrfxC2PPGZ3aZqsqH1DdoIj1ftQwqm1hAnxKqWGtSX3xhFlkKiVUNsdzbEzesqgQzIz4xgD2KDJr+QAmiZmPDlk1/KHTBcdQ4dCfG/3tb6ySOYn8xAtF4dcJXMIfWXuSSHYc900fPmeIwpic0cdzTXnpMc4W9DEb8aNWSO+CjjGDXqHVqGL55tG1kWsuUa5qYJBM0DUz+2Ppo=
   bucket: mymsafety
+  skip_cleanup: true
+  region: us-east-2
   local-dir: cypress
   upload-dir: cypress
   acl: public_read_write
