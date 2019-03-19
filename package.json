@@ -10,7 +10,11 @@
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "build:browser": "ionic cordova build browser",
+    "start:ci": "http-server ./platforms/browser/www -p 8100 -c-1 --silent",
+    "test:ci": "run-p --race start:ci cypress:run"
   },
   "dependencies": {
     "@angular/common": "5.0.3",

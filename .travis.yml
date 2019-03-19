@@ -1,0 +1,25 @@
+language: node_js
+sudo: required
+
+node_js:
+  - '10'
+
+cache:
+  directories:
+    - ~/.npm
+    - ~/.cache
+    - node_modules
+
+stages:
+  - test
+
+install:
+  - npm ci
+
+before_script:
+  - npm install -g cordova ionic
+  - ionic cordova platform add browser
+  - npm run build:browser
+
+script:
+  - npm run test:ci
