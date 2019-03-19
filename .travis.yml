@@ -1,25 +1,36 @@
 language: node_js
 sudo: required
-
 node_js:
-  - '10'
-
+- '10'
 cache:
   directories:
-    - ~/.npm
-    - ~/.cache
-    - node_modules
-
+  - "~/.npm"
+  - "~/.cache"
+  - node_modules
 stages:
-  - test
-
+- test
 install:
-  - npm ci
-
+- npm ci
 before_script:
-  - npm install -g cordova ionic
-  - ionic cordova platform add browser
-  - npm run build:browser
-
+- npm install -g cordova ionic
+- ionic cordova platform add browser
+- npm run build:browser
 script:
-  - npm run test:ci
+- npm run test:ci
+addons:
+  artifacts: true
+env:
+  global:
+    secure: fvK43w6cKvMT4qx/tD4XvlPKegiAzsghEwToKs+3OzdiV5EIPpL8qB4COg8YCVuUOO7fakaDv4I54heCeYRj3uLzkunldj+yWl/NtwT7ktYhcAAtHX21PKWJlv7G5KIDWzXXLxUnh8dPD4QFnsfPeifpu7HQTvwy0wWn2fxAj54l7JLZA3QvVEIrt8f+U9n0FcFzjceGWVQeGCBApFzcYUWwg2kbB+0FmV+trLD0tCI9Ar9pMh4XMXoDPv/3CGcPPPcIZFgmOwEIElGjDXSdbk84eogPvWNZJar7/9zeZxqNqT1EKCbBN3GLHdRY3XcatWKt6G57yljF2l8gQvC5N9rn105pB+wBLvFEapiGSLhdv2a1KrChFnyfTrmCqRvAWWDNeO/C/MfKA4l94wBDyanIn/mn8Qhk+N+mHdsxEBAMK73oi58W4C2jKNWj+9T+lRF4WueOHF7z8N0Q0MkrBYuf6ve2HReuOJaDIo/gD+Nd7jHJF8m+c0lNPA26iYOp9Qmj2JslJqIOycQra8kSHOMApro7ZrDcq+0mqvg4jNbTxrE8/n449N6/TsmWiFlR95m9MsUyNej6eXKq/dXlTkeivLaoxnfXvLZS1QLFZgEmhAL8NMtnD4U97FHw7/Td/DSelF5SdiD1q19Nx5+RNpoqhRhMOKNi94vnCvfVNIM=
+deploy:
+  provider: s3
+  access_key_id: AKIAJAIJOZU6CFSUV34Q
+  secret_access_key:
+    secure: Yhnbd7MBuw/iFJ7I51f5SOmScdGNQJgUOp67hafhvzE+7rdzacKUaGDxEhVz3F6hNSJKNQRrDnfk4JonQozKCX27pFAGA36ETQs7FnVMr1G16Qk1jvyjtdFX4mVz3s4BYZvXi6A/7nY+lExaH9zr7nwcHfUHy8qgitvrOldkG7UzgyzFNTmRI58ZycJ6QSgChMcmMAIVAMmJJGi2VmMF4p3HDgu17qt3pOgKtIOX6A1sSdo9EKwzmvtLtDjdSkHYALpHv7w8GsOzHJ/PqDdVgyS1KJDh5szIXaSDQ4jvfZqvMfePBpxNdX1sNgRrcsd0mefd/lENeCuZlLzAo6ipKpbS1jQfpuP/vop1dKXntnvpN7xdCWZeetSA2VDY/LLInPEOV2JM+I3OOgJng21oC2We688VFgmiPujcsDTPscKJS5/NsHCD7JVSJqyKvOTymdMWn0NF6Lrq51TPT0dYD+io4InQlpkekAQzfyY9Kd5s6ejywpRrSPY02hKQF4TmrRcgLmUfxcFifRpwFr8sseUYvIh6IRQpixK5CIhvZAyU4xMZhFMLbYANX5lTUPL9zR4PicMhU77a5+PIW9wENADi4YViytyZOKPAOnxMVPSG3bLRjqDDEbmk7v7ASTswcVGH+AP4cINIugluHTCwVEmX+ebbOZsCYz+02qasllg=
+  bucket: mymsafety
+  local-dir: "./cypress"
+  upload-dir: "./cypress"
+  acl: public_read_write
+  on:
+    repo: altixco/ionic-cypress
+    branch: travis_s3
