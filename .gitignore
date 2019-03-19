@@ -33,3 +33,9 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+fastlane/output/
+fastlane/report.xml
+
+cypress/screenshots/
+cypress/videos/
