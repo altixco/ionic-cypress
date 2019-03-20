@@ -20,7 +20,6 @@ script:
 addons:
   artifacts:
     s3_region: us-west-2
-    paths: 
 env:
   global:
   - ARTIFACTS_BUCKET=mymsafety
