@@ -4,12 +4,13 @@ describe('Home page', () => {
     });
 
     it('successfully loads', () => {
-        cy.contains('Home');
+        cy.contains('Home');       
     });
 
-    it('should show the menu pressing the toggle button', () => {
+    it('should show the menu pressing the toggle button', () => {        
         cy.get('.scroll-content > .bar-buttons').click();
         cy.get('ion-menu').should('be.visible');
+        cy.screenshot('menu', { scale: true, capture: 'viewport' });
     });
 
     it('should show the menu pressing the burger menu', () => {
