@@ -19,11 +19,12 @@ before_script:
 script:
 - npm run test:ci
 addons:
-  artifacts:    
+  artifacts:
+    s3_region: us-west-1
     debug: true
 after_success:
-- aws s3 cp cypress/videos s3://mymsafety/cypress/videos --recursive
-- aws s3 cp cypress/screenshots s3://mymsafety/cypress/videos --recursive
+- aws s3 cp cypress/videos s3://mymsafety/travis/travis/$TRAVIS_BUILD_NUMBER --recursive
+- aws s3 cp cypress/screenshots s3://mymsafety/travis/$TRAVIS_BUILD_NUMBER --recursive
 env:
   global:
   - ARTIFACTS_BUCKET=mymsafety
