@@ -20,7 +20,7 @@ script:
 - npm run test:ci
 addons:
   artifacts:
-    s3_region: us-west-1
+    s3_region: us-east-2
     debug: true
 after_success:
 - aws s3 cp cypress/videos s3://mymsafety/travis/travis/$TRAVIS_BUILD_NUMBER --recursive
